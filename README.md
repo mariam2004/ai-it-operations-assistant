@@ -54,36 +54,6 @@ flowchart LR
     CFG -.-> DB
 ```
 
-## 🔄 How a Question Is Answered
-
-The model never touches the database directly. It *requests* a tool; Python runs it and returns the result for the model to explain.
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor E as IT Engineer
-    participant UI as Gradio UI
-    participant A as Agent (agent.py)
-    participant G as Gemini
-    participant T as Python Tools
-    participant D as SQLite (read-only)
-
-    E->>UI: "How many tickets are in each status?"
-    UI->>A: ask_assistant(question, history)
-    loop up to 4 tool rounds
-        A->>G: messages + tool definitions
-        G-->>A: tool_call (e.g. get_tickets_by_status)
-        A->>T: execute tool in Python
-        T->>D: validated read-only query
-        D-->>T: rows
-        T-->>A: compact JSON result
-    end
-    A->>G: tool results
-    G-->>A: final grounded answer
-    A-->>UI: answer + Plotly chart + result table
-    UI-->>E: renders chat, chart and table
-```
-
 ## 🧭 Intent Routing & Troubleshooting Workflow
 
 The agent routes each request by intent. For technical issues it follows a strict **source-search order** so advice is always evidence-based.
