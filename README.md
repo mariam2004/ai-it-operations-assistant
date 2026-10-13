@@ -21,6 +21,13 @@
 
 The assistant never invents numbers. Every figure comes from a predefined analytics function or a validated read-only SQL query, and troubleshooting advice is retrieved from a local knowledge base *before* falling back to generic playbooks.
 
+
+### 💬 Chat Assistant
+
+<p align="center">
+  <img src="screenshots/chat-assistant.png" alt="AI IT Operations Assistant - Chat Interface" width="850">
+</p>
+
 ## ✨ Key Features
 
 | | Feature | What it does |
