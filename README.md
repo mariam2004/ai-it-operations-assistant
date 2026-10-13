@@ -279,9 +279,3 @@ Documents marked `not_organization_approved` are presented as generic guidance, 
 - Containerize the app with Docker for one-command deployment.
 
 ---
-
-<div align="center">
-
-Built with ❤️ using Python, Gradio, and Gemini.
-
-</div>
