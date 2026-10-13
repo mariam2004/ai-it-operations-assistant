@@ -85,18 +85,6 @@ flowchart TD
 
 ## 🛡️ Safety & Privacy by Design
 
-```mermaid
-flowchart LR
-    SQLIN[AI-generated SQL] --> P1[Parse with SQLGlot]
-    P1 --> P2{Single SELECT only?<br/>No CTE / set ops / DML}
-    P2 -->|No| X[❌ Rejected]
-    P2 -->|Yes| P3{Approved tables only?<br/>No wildcard *<br/>No blocked functions}
-    P3 -->|No| X
-    P3 -->|Yes| P4{Personal-data columns<br/>blocked?}
-    P4 -->|Blocked| X
-    P4 -->|OK| P5[Enforce row LIMIT<br/>default 200, max 1000]
-    P5 --> RUN[✅ Execute on SQLite]
-```
 
 - **Read-only by construction** — only one validated `SELECT` is ever executed; the assistant cannot create, update, assign, close, or delete anything.
 - **Approved schema only** — queries are limited to eight Gold tables: `facttickets`, `dimcustomer`, `dimdate`, `dimissue`, `dimstaff`, `dimticketcontext`, `dimticketflags`, `dimticketstate`.
