@@ -1,0 +1,33 @@
+﻿# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local database and data
+*.db
+*.sqlite
+*.sqlite3
+data/*
+!data/README.md
+
+# Backups and maintenance material
+archive/
+backup*/
+*_backup*/
+_maintenance/
+*.bak
+*.before_*
+*.backup_*
+
+# OS files
+Thumbs.db
+.DS_Store
